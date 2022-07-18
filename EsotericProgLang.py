@@ -30,11 +30,10 @@ class MyInterpreter:
     def plantedinfo(self, xs):
         input()
 
-
 listcode = []
 
 try:
-    with open("input.txt", "r", encoding='UTF-8') as file:
+    with open("input.gg", "r", encoding='UTF-8') as file:
         for string in file.readlines():
             listcode.append(string.rstrip('\n').split(':'))
 
