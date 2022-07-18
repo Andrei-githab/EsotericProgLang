@@ -9,10 +9,14 @@ class MyCompeler:
 
 compeler = MyCompeler()
 
-with open("input.txt", "r", encoding='UTF-8') as file:
-    for string in file:
-        if string.find('spwninfo:') != -1:
-            compeler.MyPrint(string)
+try:
+    with open("input.txt", "r", encoding='UTF-8') as file:
+        for string in file:
+            if string.find('spwninfo:') != -1:
+                compeler.MyPrint(string)
 
-        elif string.find('plantedinfo:') != -1:
-            compeler.MyScan()
+            elif string.find('plantedinfo:') != -1:
+                compeler.MyScan()
+except IOError as e:
+    print("Не удалось открыть файл!")
+    
