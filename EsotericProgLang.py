@@ -41,6 +41,9 @@ try:
     interpreter = MyInterpreter()
     interpreter.run(listcode)
 
+except FileNotFoundError as e:
+    print("Извините, файл не существует :(")
 except IOError as e:
-    print("Не удалось открыть файл!")
-
+    print("Не удалось открыть файл :(")
+except Exception:
+    print("Что-то пошло не так :(")
