@@ -522,9 +522,6 @@ class BreakNode:
         self.pos_end = pos_end
 
 
-#######################################
-# PARSE RESULT
-#######################################
 
 class ParseResult:
     def __init__(self):
@@ -2179,9 +2176,9 @@ global_symbol_table.set("FALSE", Number.false)
 global_symbol_table.set("TRUE", Number.true)
 global_symbol_table.set("MATH_PI", Number.math_PI)
 global_symbol_table.set("spwninfo", BuiltInFunction.print)
-global_symbol_table.set("PRINT_RET", BuiltInFunction.print_ret)
-global_symbol_table.set("INPUT", BuiltInFunction.input)
-global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
+global_symbol_table.set("spwninfo_RET", BuiltInFunction.print_ret)
+global_symbol_table.set("plantedinfo", BuiltInFunction.input)
+global_symbol_table.set("plantedinfo_INT", BuiltInFunction.input_int)
 global_symbol_table.set("CLEAR", BuiltInFunction.clear)
 global_symbol_table.set("CLS", BuiltInFunction.clear)
 global_symbol_table.set("IS_NUM", BuiltInFunction.is_number)
