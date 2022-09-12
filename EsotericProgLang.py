@@ -136,7 +136,7 @@ KEYWORDS = [
     'AND',
     'OR',
     'NOT',
-    'IF',
+    'afaik',
     'ELIF',
     'ELSE',
     'FOR',
@@ -817,7 +817,7 @@ class Parser:
             if res.error: return res
             return res.success(list_expr)
 
-        elif tok.matches(TT_KEYWORD, 'IF'):
+        elif tok.matches(TT_KEYWORD, 'afaik'):
             if_expr = res.register(self.if_expr())
             if res.error: return res
             return res.success(if_expr)
@@ -891,7 +891,7 @@ class Parser:
 
     def if_expr(self):
         res = ParseResult()
-        all_cases = res.register(self.if_expr_cases('IF'))
+        all_cases = res.register(self.if_expr_cases('afaik'))
         if res.error: return res
         cases, else_case = all_cases
         return res.success(IfNode(cases, else_case))
