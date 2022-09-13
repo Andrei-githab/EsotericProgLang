@@ -138,13 +138,13 @@ KEYWORDS = [
     'NOT',
     'afaik',
     'ELIF',
-    'ELSE',
-    'FOR',
+    'gt',
+    'startgame',
     'TO',
     'STEP',
     'WHILE',
     'FUN',
-    'THEN',
+    'gogo',
     'END',
     'RETURN',
     'CONTINUE',
@@ -822,7 +822,7 @@ class Parser:
             if res.error: return res
             return res.success(if_expr)
 
-        elif tok.matches(TT_KEYWORD, 'FOR'):
+        elif tok.matches(TT_KEYWORD, 'startgame'):
             for_expr = res.register(self.for_expr())
             if res.error: return res
             return res.success(for_expr)
@@ -903,7 +903,7 @@ class Parser:
         res = ParseResult()
         else_case = None
 
-        if self.current_tok.matches(TT_KEYWORD, 'ELSE'):
+        if self.current_tok.matches(TT_KEYWORD, 'gt'):
             res.register_advancement()
             self.advance()
 
@@ -961,7 +961,7 @@ class Parser:
         condition = res.register(self.expr())
         if res.error: return res
 
-        if not self.current_tok.matches(TT_KEYWORD, 'THEN'):
+        if not self.current_tok.matches(TT_KEYWORD, 'gogo'):
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
                 f"Expected 'THEN'"
@@ -1001,7 +1001,7 @@ class Parser:
     def for_expr(self):
         res = ParseResult()
 
-        if not self.current_tok.matches(TT_KEYWORD, 'FOR'):
+        if not self.current_tok.matches(TT_KEYWORD, 'startgame'):
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
                 f"Expected 'FOR'"
@@ -1053,7 +1053,7 @@ class Parser:
         else:
             step_value = None
 
-        if not self.current_tok.matches(TT_KEYWORD, 'THEN'):
+        if not self.current_tok.matches(TT_KEYWORD, 'gogo'):
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
                 f"Expected 'THEN'"
@@ -1100,7 +1100,7 @@ class Parser:
         condition = res.register(self.expr())
         if res.error: return res
 
-        if not self.current_tok.matches(TT_KEYWORD, 'THEN'):
+        if not self.current_tok.matches(TT_KEYWORD, 'gogo'):
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
                 f"Expected 'THEN'"
