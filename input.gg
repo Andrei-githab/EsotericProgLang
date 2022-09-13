@@ -1,3 +1,6 @@
-spwninfo("Greetings universe!")
-afaik TRUE THEN
-    spwninfo("Greetings univershhhe!")
+spwninfo("It's just a conclusion!")
+afaik TRUE gogo
+    spwninfo("This is an IF loop")
+startgame i = 0 TO 5 gogo
+    spwninfo("This is a FOR loop")
+END
